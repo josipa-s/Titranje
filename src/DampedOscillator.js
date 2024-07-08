@@ -98,21 +98,22 @@ const DampedOscillator = ({ showXvt, showEnergy }) => {
         if ((omega0 * omega0 - delta * delta) > 0) {
           newPosition = amplitude * Math.pow(Math.E, (-b / (2 * m)) * t) * Math.cos(omega * t);
           v = amplitude * Math.exp(-delta * t) * (delta * Math.cos(omega * t) - omega * Math.sin(omega * t));
-          a = -amplitude * Math.exp(-delta * t) * (delta * delta * Math.cos(omega * t) + 2 * delta * omega * Math.sin(omega * t) - omega * omega * Math.cos(omega * t));
+          a = amplitude * Math.exp(-delta * t) * (delta * delta * Math.cos(omega * t) + 2 * delta * omega * Math.sin(omega * t) - omega * omega * Math.cos(omega * t));
           v_max = amplitude + omega;
           a_max = amplitude + omega * omega;
         } else if ((delta * delta - omega0 * omega0) > 0) {
           const q = Math.sqrt(delta * delta - omega0 * omega0);
           newPosition = amplitude * Math.pow(Math.E, -delta * t) * (Math.cosh(q * t) + (delta / q) * Math.sinh(q * t));
-          v = amplitude * Math.exp(-delta * t) * (-delta * Math.cosh(q * t) - q * Math.sinh(q * t) + (delta / q) * (delta * Math.sinh(q * t) + q * Math.cosh(q * t)));
-          a = amplitude * Math.exp(-delta * t) * (delta * delta * Math.cosh(q * t) + 2 * delta * q * Math.sinh(q * t) - q * q * Math.cosh(q * t) + (delta / q) * (delta * delta * Math.sinh(q * t) + 2 * delta * q * Math.cosh(q * t) + q * q * Math.sinh(q * t)));
+          v = -amplitude * Math.exp(-delta * t) * (-delta * Math.cosh(q * t) - q * Math.sinh(q * t) + (delta / q) * (delta * Math.sinh(q * t) + q * Math.cosh(q * t)));
+          a = -amplitude * Math.exp(-delta * t) * (delta * delta * Math.cosh(q * t) + 2 * delta * q * Math.sinh(q * t) - q * q * Math.cosh(q * t) + (delta / q) * (delta * delta * Math.sinh(q * t) + 2 * delta * q * Math.cosh(q * t) + q * q * Math.sinh(q * t)));
           v_max = amplitude + (delta / q);
           a_max = (amplitude * delta * delta + 2 * delta * q + q * q + (delta / q) * delta * delta + 2 * delta * q + q * q) * 4;
         } else if (delta === omega0) {
           newPosition = amplitude * Math.pow(Math.E, -omega0 * t) * (1 + omega0 * t);
-          v = -amplitude * omega0 * t * Math.exp(-omega0 * t);
-          a = -amplitude * omega0 * omega0 * Math.exp(-omega0 * t) * (1 - 2 * t);
-          v_max = amplitude * omega0;
+          v = -amplitude * omega0 * omega0 * t * Math.exp(-omega0 * t);
+          a = -amplitude * Math.pow(omega0, 3) * Math.exp(-omega0 * t);
+          v_max = amplitude * omega0 * omega0;
+          a_max = amplitude * omega0 * omega0 * omega0;
         }
 
         setPosition(ravnoteza - newPosition);
