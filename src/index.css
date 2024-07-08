@@ -1,13 +1,128 @@
+* {
+  font-family: 'Courier New', Courier, monospace;
+  margin: auto;
+}
+
 body {
-  margin: 0;
+  margin: 20;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+ height: 100vh;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+#container {
+  display: grid;
+  grid-template-areas: "header header header"
+  "sidebar main ."
+  "sidebar main ."
+  "sidebar main ."
+  "sidebar . .";
+  grid-template-rows: auto;
+  grid-template-columns: 20% 60% 20%;
+}
+
+#menu {
+  height: fit-content;
+  width: 100%;
+  background-color: cadetblue;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 1rem;
+  grid-area: header;
+}
+
+#title {
+  color: white;
+}
+
+h2 {
+  color: white;
+}
+
+#buttons {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 1rem;
+}
+
+.main-buttons {
+  width: fit-content;
+  border-radius: 20px;
+  font-size: large;
+  padding: 3%;
+  border: none;
+}
+
+.main-buttons:hover {
+  background-color: cadetblue 1%;
+  opacity: 70%;
+  color: black;
+}
+
+#side-container {
+  grid-area: sidebar;
+  background-color: cadetblue;
+  height: 100%;
+  width: 100%;
+}
+
+#side-menu {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.5rem;
+  align-self: start;
+  height: auto;
+  width: auto;
+  
+}
+
+.side-btns {
+  width: 90%;
+  font-size: large;
+  padding: 3%;
+  border: none;
+}
+
+.oscillator {
+  grid-area: main;
+  margin: 1rem;
+}
+
+.quiz {
+  grid-area: main;
+  height: 100%;
+}
+
+input {
+  width: 3rem;
+}
+
+.velicine {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.math-container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  width: 100%;
+  flex-direction: column;
+}
+
+.graf {
+  align-self: flex-end;
 }
