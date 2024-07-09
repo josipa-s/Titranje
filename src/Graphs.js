@@ -52,7 +52,7 @@ export const calculateAmplitude = (omega, m, k, b, F0) => {
     return (
       <>
       <p>Graf ovisnosti amplitude o frekvenciji</p>
-      <InlineMath>A</InlineMath>
+      <InlineMath>A/cm</InlineMath>
       <Stage width={graphWidth} height={graphHeight + 30}>
         <Layer>
           <Line points={[0, 0, 0, graphHeight]} stroke="black" strokeWidth={1} />
@@ -87,7 +87,7 @@ export const calculateAmplitude = (omega, m, k, b, F0) => {
         </Layer>
       </Stage>
       <div className="math-container">
-        <InlineMath className={'graf'}>\omega_p</InlineMath>
+        <InlineMath className={'graf'}>{`\\omega_p/rad\\mathit{s}^{-1}`}</InlineMath>
       </div>
       </>
     );
@@ -111,8 +111,8 @@ export const calculateAmplitude = (omega, m, k, b, F0) => {
     return (
         <>
             <p>Graf ovisnosti položaja o vremenu</p>
-            <InlineMath>x(t)</InlineMath>
-            <Stage width={graphWidth} height={graphHeight} >
+            <InlineMath>x/cm</InlineMath>
+            <Stage width={graphWidth + 30} height={graphHeight} >
                 <Layer>
                     <Line
                         points={[0, graphHeight / 2, graphWidth, graphHeight / 2]}
@@ -148,7 +148,7 @@ export const calculateAmplitude = (omega, m, k, b, F0) => {
                         strokeWidth={2}
                         dash={[0, 5]}
                     />
-                    {xTickPoints.map((x, i) => (
+                    {xTickPoints.map((x, i) =>  (
                         <React.Fragment key={i}>
                             <Line
                                 points={[x, graphHeight / 2 - 5, x, graphHeight / 2 + 5]}
@@ -178,8 +178,8 @@ export const calculateAmplitude = (omega, m, k, b, F0) => {
                     />
                      <Text 
                         x={graphWidth - 15}
-                        y={graphHeight / 2 + 10}
-                        text={"t"}
+                        y={graphHeight / 2 + 20}
+                        text={"t/s"}
                         fontStyle={"italic"}
                         fontSize={16}
                     />
@@ -187,8 +187,8 @@ export const calculateAmplitude = (omega, m, k, b, F0) => {
             </Stage>
             <br />
             <p>Graf ovisnosti brzine o vremenu</p>
-            <InlineMath>v(t)</InlineMath>
-            <Stage width={graphWidth} height={graphHeight} >
+            <InlineMath>{`v/\\mathit{cms}^{-1}`}</InlineMath>
+            <Stage width={graphWidth + 30} height={graphHeight} >
                 <Layer>
                     <Line
                         points={[0, graphHeight / 2, graphWidth, graphHeight / 2]}
@@ -254,8 +254,8 @@ export const calculateAmplitude = (omega, m, k, b, F0) => {
                     />
                      <Text 
                         x={graphWidth - 15}
-                        y={graphHeight / 2 + 10}
-                        text={"t"}
+                        y={graphHeight / 2 + 20}
+                        text={"t/s"}
                         fontStyle={"italic"}
                         fontSize={16}
                     />
@@ -263,8 +263,8 @@ export const calculateAmplitude = (omega, m, k, b, F0) => {
             </Stage>
             <br />
             <p>Graf ovisnosti akceleracije o vremenu</p>
-            <InlineMath>a(t)</InlineMath>
-            <Stage width={graphWidth} height={graphHeight} >
+            <InlineMath>{`a/\\mathit{cms}^{-2}`}</InlineMath>
+            <Stage width={graphWidth + 30} height={graphHeight} >
                 <Layer>
                     <Line
                         points={[0, graphHeight / 2, graphWidth, graphHeight / 2]}
@@ -330,8 +330,8 @@ export const calculateAmplitude = (omega, m, k, b, F0) => {
                     />
                      <Text 
                         x={graphWidth - 15}
-                        y={graphHeight / 2 + 10}
-                        text={"t"}
+                        y={graphHeight / 2 + 20}
+                        text={"t/s"}
                         fontStyle={"italic"}
                         fontSize={16}
                     />
@@ -364,7 +364,8 @@ export const EGraphs = ({ graphWidth, graphHeight, uPoints, kPoints, uxPoints, k
   return (
       <>
           <p>Graf ovisnosti energije o vremenu</p>
-          <Stage width={graphWidth} height={graphHeight} >
+          <InlineMath>\\E/mJ</InlineMath>
+          <Stage width={graphWidth + 25} height={graphHeight + 15} >
               <Layer>
                   <Line
                       points={uPoints}
@@ -388,7 +389,7 @@ export const EGraphs = ({ graphWidth, graphHeight, uPoints, kPoints, uxPoints, k
                       tension={0.2}
                       lineCap="round"
                       lineJoin="round"
-                      strokeWidth={3}
+                      strokeWidth={2}
                       dash={[0, 5]}
                   />
                   <Line
@@ -412,7 +413,7 @@ export const EGraphs = ({ graphWidth, graphHeight, uPoints, kPoints, uxPoints, k
                           />
                           <Text
                               x={x - 5}
-                              y={graphHeight - 10}
+                              y={graphHeight + 5}
                               text={(i)}
                               fontSize={10}
                           />
@@ -421,22 +422,22 @@ export const EGraphs = ({ graphWidth, graphHeight, uPoints, kPoints, uxPoints, k
                   <Text
                       x={5}
                       y={graphHeight / 2 + 45}
-                      text='U'
+                      text='K'
                       fontSize={16}
                       stroke={"cadetblue"}
                   />
                   <Text
                       x={5}
                       y={graphHeight / 2 - 65}
-                      text='K'
+                      text='U'
                       fontSize={16}
                       stroke={"red"}
                   />
                  
                   <Text 
-                      x={graphWidth - 15}
-                      y={graphHeight - 10}
-                      text={"t"}
+                      x={graphWidth + 7}
+                      y={graphHeight + 2}
+                      text={"t/s"}
                       fontStyle={"italic"}
                       fontSize={16}
                   />
@@ -451,8 +452,8 @@ export const EGraphs = ({ graphWidth, graphHeight, uPoints, kPoints, uxPoints, k
           { path !== '/priguseno' &&
           <>
               <p>Graf ovisnosti energije o položaju</p>
-              <BlockMath>\\E</BlockMath>
-              <Stage width={graphWidth} height={graphHeight} >
+              <BlockMath>\\E/mJ</BlockMath>
+              <Stage width={graphWidth + 50} height={graphHeight + 15} >
                   <Layer>
                       <Line
                           points={[graphWidth / 2, 0, graphWidth / 2, graphHeight]}
@@ -496,7 +497,7 @@ export const EGraphs = ({ graphWidth, graphHeight, uPoints, kPoints, uxPoints, k
                           tension={0.2}
                           lineCap="round"
                           lineJoin="round"
-                          strokeWidth={3}
+                          strokeWidth={1}
                       />
                       <Line
                           points={[0, 0, graphWidth, 0]} 
@@ -519,8 +520,8 @@ export const EGraphs = ({ graphWidth, graphHeight, uPoints, kPoints, uxPoints, k
                               />
                               <Text
                                   x={x - 5}
-                                  y={graphHeight - 10}
-                                  text={((-Math.abs(amplitude) - (2 * amplitude * i / numXTicks)).toFixed(2))}
+                                  y={graphHeight + 5}
+                                  text={((-Math.abs(amplitude / 50) - (2 * (amplitude / 50) * i / numXTicks)).toFixed(2))}
                                   fontSize={10}
                               />
                           </React.Fragment>
@@ -528,14 +529,14 @@ export const EGraphs = ({ graphWidth, graphHeight, uPoints, kPoints, uxPoints, k
                       <Text
                           x={5}
                           y={graphHeight / 2 + 45}
-                          text='U'
+                          text='K'
                           fontSize={16}
                           stroke={"cadetblue"}
                       />
                       <Text
                           x={5}
                           y={graphHeight / 2 - 65}
-                          text='K'
+                          text='U'
                           fontSize={16}
                           stroke={"red"}
                       />
@@ -547,20 +548,20 @@ export const EGraphs = ({ graphWidth, graphHeight, uPoints, kPoints, uxPoints, k
                      
                       
                       <Text 
-                          x={graphWidth - 15}
-                          y={graphHeight - 10}
-                          text={"x"}
+                          x={graphWidth + 15}
+                          y={graphHeight}
+                          text={"x/cm"}
                           fontStyle={"italic"}
                           fontSize={16}
                       />
                   </Layer>
               </Stage>
-              <InlineMath>A</InlineMath>
           </> }
           { path === '/priguseno' && 
           <>
-              Graf ovisnosti ukupne energije o vremenu
-              <Stage width={graphWidth} height={graphHeight} >
+              <p>Graf ovisnosti ukupne energije o vremenu</p>
+              <InlineMath>\\E/mJ</InlineMath>
+              <Stage width={graphWidth + 30} height={graphHeight + 20} >
                   <Layer>
                       <Line
                           points={ePoints}
@@ -576,7 +577,7 @@ export const EGraphs = ({ graphWidth, graphHeight, uPoints, kPoints, uxPoints, k
                           tension={0.2}
                           lineCap="round"
                           lineJoin="round"
-                          strokeWidth={3}
+                          strokeWidth={2}
                           dash={[0, 5]}
                       />
                       <Line
@@ -600,7 +601,7 @@ export const EGraphs = ({ graphWidth, graphHeight, uPoints, kPoints, uxPoints, k
                               />
                               <Text
                                   x={x - 5}
-                                  y={graphHeight - 10}
+                                  y={graphHeight + 5}
                                   text={i}
                                   fontSize={10}
                               />
@@ -615,9 +616,9 @@ export const EGraphs = ({ graphWidth, graphHeight, uPoints, kPoints, uxPoints, k
                       />
                       
                       <Text 
-                          x={graphWidth - 15}
+                          x={graphWidth + 5}
                           y={graphHeight - 10}
-                          text={"t"}
+                          text={"t/s"}
                           fontStyle={"italic"}
                           fontSize={16}
                       />

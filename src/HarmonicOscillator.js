@@ -81,12 +81,12 @@ const HarmonicOscillator = ({ showXvt, showEnergy }) => {
         const v_scale = v_max / (graphHeight / 2 - 2);
         const x_scale = amplitude / (graphHeight / 2 - 2);
         const a_scale = a_max / (graphHeight / 2 - 2);
-        const u = -(k * Math.pow(x, 2)) / 2;
-        const u_max = (k * Math.pow(amplitude, 2)) / 2;
+        const u = -(k * Math.pow(x / 50, 2)) / 2;
+        const u_max = (k * Math.pow(amplitude / 50, 2)) / 2;
         const u_scale = u_max / graphHeight ;
         setPotentialEnergy(u);
-        const ke = -(mass * Math.pow(v, 2)) / 2;
-        const k_max = (mass * Math.pow(v_max, 2)) / 2;
+        const ke = -(mass * Math.pow(v / 50, 2)) / 2;
+        const k_max = (mass * Math.pow(v_max / 50, 2)) / 2;
         const k_scale = k_max / graphHeight;
         setKineticEnergy(ke);
         setA_max(a_max);
@@ -229,9 +229,9 @@ const HarmonicOscillator = ({ showXvt, showEnergy }) => {
     velocityPointsRef={velocityPointsRef.current.flatMap(point => [point.x, point.y])}
     positionPointsRef={positionPointsRef.current.flatMap(point => [point.x, point.y])}
     aPointsRef={aPointsRef.current.flatMap(point => [point.x, point.y])}
-    amplitude={amplitude}
-    v_max={v_max}
-    a_max={a_max}
+    amplitude={amplitude / 50}
+    v_max={v_max / 50}
+    a_max={a_max / 50}
     period={period}
     ></XvtGraphs> }
     { showEnergy && <EGraphs

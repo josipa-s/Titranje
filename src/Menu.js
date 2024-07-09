@@ -55,7 +55,7 @@ const Menu = ({ setShowXvt, setShowEnergy, setShowA }) => {
         <button className="side-btns" onClick={handleClickE}>Energija</button>
         )}
         { (path === '/prisilno' && 
-        <button className="side-btns" onClick={handleClickE}>Amplituda i gfrekvencija</button>
+        <button className="side-btns" onClick={handleClickE}>Amplituda i frekvencija</button>
         )}
     </div>
     </div>

@@ -181,10 +181,10 @@ const ForcedOscillator = ({ showXvt, showEnergy }) => {
           velocityPointsRef={velocityPointsRef.current.flatMap(point => [point.x, point.y])}
           positionPointsRef={positionPointsRef.current.flatMap(point => [point.x, point.y])}
           aPointsRef={aPointsRef.current.flatMap(point => [point.x, point.y])}
-          a_max={a_max}
-          v_max={v_max}
+          a_max={a_max / 10}
+          v_max={v_max / 10}
           period={period}
-          amplitude={amplitude}
+          amplitude={amplitude / 10}
         />}
         { showEnergy && /*<EGraphs 
           //canvasWidth={canvasWidth}

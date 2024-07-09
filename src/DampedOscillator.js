@@ -80,7 +80,6 @@ const DampedOscillator = ({ showXvt, showEnergy }) => {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setPosition(ravnoteza);
       if (dragged) {
         const period = 2 * Math.PI * Math.sqrt(m / k);
         setPeriod(period);
@@ -249,6 +248,7 @@ const DampedOscillator = ({ showXvt, showEnergy }) => {
         onDragMove={(e) => setPosition(e.target.y())}
         onMouseDown={(e) => {
           setDragged(false)
+          setPosition(e.target.y())
         }}
         />
 
@@ -271,9 +271,9 @@ const DampedOscillator = ({ showXvt, showEnergy }) => {
     velocityPointsRef={velocityPointsRef.current.flatMap(point => [point.x, point.y])}
     positionPointsRef={positionPointsRef.current.flatMap(point => [point.x, point.y])}
     aPointsRef={aPointsRef.current.flatMap(point => [point.x, point.y])}
-    amplitude={amplitude}
-    v_max={v_max}
-    a_max={a_max}
+    amplitude={amplitude / 50}
+    v_max={v_max / 50}
+    a_max={a_max / 50}
     period={period}
     ></XvtGraphs> }
     { showEnergy && <EGraphs
