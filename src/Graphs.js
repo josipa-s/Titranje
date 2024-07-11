@@ -424,14 +424,14 @@ export const EGraphs = ({ graphWidth, graphHeight, uPoints, kPoints, uxPoints, k
                       y={graphHeight / 2 + 45}
                       text='K'
                       fontSize={16}
-                      stroke={"cadetblue"}
+                      stroke={"red"}
                   />
                   <Text
                       x={5}
                       y={graphHeight / 2 - 65}
                       text='U'
                       fontSize={16}
-                      stroke={"red"}
+                      stroke={"cadetblue"}
                   />
                  
                   <Text 
@@ -531,14 +531,14 @@ export const EGraphs = ({ graphWidth, graphHeight, uPoints, kPoints, uxPoints, k
                           y={graphHeight / 2 + 45}
                           text='K'
                           fontSize={16}
-                          stroke={"cadetblue"}
+                          stroke={"red"}
                       />
                       <Text
                           x={5}
                           y={graphHeight / 2 - 65}
                           text='U'
                           fontSize={16}
-                          stroke={"red"}
+                          stroke={"cadetblue"}
                       />
                       <Text 
                           x={graphWidth / 2 + 1}
